@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>register</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+<center>
+<h1>IMAW 报名系统</h1>
+</center>
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+<form class="form-horizontal" method='post' name='registerForm' action="{{ url_for('registerForm') }}">
+{{ form.hidden_tag() }}
+<div class="form-group">
+{{form.name.label(class="col-sm-2 control-label")}}<div class="col-sm-10">{{form.name(class="form-control")}}</div>
+</div>
+<div class="form-group">
+{{form.class_.label(class="col-sm-2 control-label")}}<div class="col-sm-10">{{form.class_(class="form-control")}}</div>
+</div>
+<div class="form-group">
+{{form.sex.label(class="col-sm-2 control-label")}}
+{% for subfield in form.sex %}
+<div class="radio-inline">
+<div class="col-sm-5">
+{{ subfield }}
+{{ subfield.label(style="font-weight:normal")}}
+</div>
+</div>
+{% endfor %}
+</div>
+<div class="form-group">{{form.qq.label(class="col-sm-2 control-label")}}<div class="col-sm-10">{{form.qq(class="form-control")}}</div></div>
+<div class="form-group">{{form.phone.label(class="col-sm-2 control-label")}}<div class="col-sm-10">{{form.phone(class="form-control")}}</div></div>
+<div class="form-group">{{form.room.label(class="col-sm-2 control-label")}}<div class="col-sm-10">{{form.room(class="form-control")}}</div></div>
+<div class="form-group">{{form.hobby.label(class="col-sm-2 control-label")}}<div class="col-sm-10">{{form.hobby(class="form-control")}}</div></div>
+<div class="form-group">{{form.expen.label(class="col-sm-2 control-label")}}<div class="col-sm-10">{{form.expen(class="form-control")}}</div></div>
+<div class="form-group">{{form.wish.label(class="col-sm-2 control-label")}}<div class="col-sm-10">{{form.wish(class="form-control")}}</div></div>
+<div class="col-sm-offset-2 col-sm-10">
+<input type='submit' value='提交' class="btn btn-default">
+</form>
+</div>
+<div class="col-sm-3"></div>
+</body>
+</html>
